@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="Test\Case\Test0001.h">
+      <Filter>Test\Case</Filter>
+    </ClInclude>
+    <ClInclude Include="Test\Case\Test0002.h">
+      <Filter>Test\Case</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDefine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Test">
+      <UniqueIdentifier>{d8cc9498-34b5-4500-a18a-917edc452109}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Case">
+      <UniqueIdentifier>{3caf88d3-0305-49bd-929d-254e1a955c62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Component">
+      <UniqueIdentifier>{28d9f894-4d47-4221-a5fb-3586887388c1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
+  </ItemGroup>
+</Project>

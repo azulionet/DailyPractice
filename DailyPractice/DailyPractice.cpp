@@ -7,7 +7,6 @@
 #include "Practice/Day0001.h"
 #include "Practice/Day0002.h"
 
-
 using namespace std;
 
 USING_PRACTICE

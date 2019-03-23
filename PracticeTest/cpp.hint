@@ -1,0 +1,4 @@
+// 자세한 내용은 다음을 참조하세요. https://go.microsoft.com/fwlink/?linkid=865984
+#define BEGIN_TEST(ClassName, Num) class ClassName##Num { public: ClassName##Num() { UnitTest(); } void UnitTest()
+
+#define END_TEST() }};

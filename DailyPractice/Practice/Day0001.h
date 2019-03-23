@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include "DailyPractice/Define.h"
 
 BEGIN_PRACTICE
 

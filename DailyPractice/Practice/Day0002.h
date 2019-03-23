@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../Component/PracticePool.h"
+#include "DailyPractice/Define.h"
+#include "DailyPractice/Component/PracticePool.h"
 
 BEGIN_PRACTICE
 
