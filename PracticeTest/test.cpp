@@ -1,6 +1,6 @@
 #include "pch.h"
 
-#include "Test/Case/Test0002.h"
+#include "Test/Case/Test0003.h"
 
 TEST(TestCaseName, TestName)
 {
@@ -20,7 +20,7 @@ TEST(TestCaseName, TestName)
 	// Day1 day1();
 	// Day2 day2();
 
-	Day2 D;
+	Day3 _3;
 
 
 }

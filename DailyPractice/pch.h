@@ -9,11 +9,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include <iostream>
-#include <vector>
-#include <list>
-#include <string>
-#include <cassert>
+
 
 #include "Define.h"
 

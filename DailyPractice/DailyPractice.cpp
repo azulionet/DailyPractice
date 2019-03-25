@@ -4,23 +4,37 @@
 #include "pch.h"
 
 
-#include "Practice/Day0001.h"
-#include "Practice/Day0002.h"
+// #include "Practice/Day0001.h"
+// #include "Practice/Day0002.h"
+#include "Practice/Day0003.h"
 
 using namespace std;
 
 USING_PRACTICE
 
+template<int N>
+class A
+{
+public:
+	constexpr A()
+	{
+		std::cout << N << "\n";
+	}
+};
+
+
+
 void main()
 {
-	LinkedList<int> li;
+	
+	constexpr auto val = std::minmax<int>({ 1,2,6,4,7,9 });
 
-	for (int i = 0; i < 10; ++i)
-	{
-		li.Add(i);
-	}
+	A<val.first>;
 
-	cout << li.Count() << endl;
+
+	cout << makeArrayConsecutive2({ 6,2,3,8 }) << endl;
+	
+
 
 	getchar();
 }

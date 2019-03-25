@@ -107,6 +107,8 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>
+      </LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,6 +159,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Practice\Day0001.h" />
     <ClInclude Include="Practice\Day0002.h" />
+    <ClInclude Include="Practice\Day0003.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DailyPractice.cpp" />

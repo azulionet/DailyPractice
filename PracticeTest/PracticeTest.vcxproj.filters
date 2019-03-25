@@ -13,6 +13,9 @@
       <Filter>Test\Case</Filter>
     </ClInclude>
     <ClInclude Include="TestDefine.h" />
+    <ClInclude Include="Test\Case\Test0003.h">
+      <Filter>Test\Case</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Test">
@@ -27,5 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>
