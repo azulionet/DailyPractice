@@ -5,11 +5,13 @@
 #include <cstdlib>
 #include <iomanip>
 
+#include <array>
 #include <vector>
 #include <list>
 #include <string>
 #include <cassert>
 #include <algorithm>
+#include <chrono>
 
 #define BEGIN_PRACTICE	namespace Practice {
 #define END_PRACTICE	}
@@ -27,6 +29,8 @@
 
 #endif
 
+
+// 12 »¡°­, 15 °ËÁ¤, 10 ³ì»ö
 #define EXPECT_EQ_DBG(x, y) \
 { \
  \
