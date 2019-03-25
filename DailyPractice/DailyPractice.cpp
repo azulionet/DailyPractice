@@ -26,14 +26,11 @@ public:
 
 void main()
 {
-	
-	constexpr auto val = std::minmax<int>({ 1,2,6,4,7,9 });
-
-	A<val.first>;
 
 
 	cout << makeArrayConsecutive2({ 6,2,3,8 }) << endl;
 	
+
 
 
 	getchar();
