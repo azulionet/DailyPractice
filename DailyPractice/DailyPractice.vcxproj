@@ -159,6 +159,7 @@
     <ClInclude Include="Practice\Day0001.h" />
     <ClInclude Include="Practice\Day0002.h" />
     <ClInclude Include="Practice\Day0003.h" />
+    <ClInclude Include="Practice\Day0004.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DailyPractice.cpp" />

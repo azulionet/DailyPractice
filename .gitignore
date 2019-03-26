@@ -9,3 +9,6 @@ x64/Debug/
 packages/
 PracticeTest/x64/Debug/
 .vs/
+CS_DailyPractice/obj/Debug/CS_DailyPractice.csproj.CoreCompileInputs.cache
+CS_DailyPractice/obj/Debug/CS_DailyPractice.csprojAssemblyReference.cache
+CS_DailyPractice/obj/Debug/
