@@ -19,6 +19,9 @@
     <Filter Include="SourceCode\Component">
       <UniqueIdentifier>{5698f224-e93c-4468-8da8-5bc535115c56}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SourceCode\Practice\Day4">
+      <UniqueIdentifier>{6b756467-839c-4e69-9d87-b230c66e3dbe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -42,6 +45,12 @@
     <ClInclude Include="Practice\Day0004.h">
       <Filter>SourceCode\Practice</Filter>
     </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>SourceCode\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day4\TestTemplate.h">
+      <Filter>SourceCode\Practice\Day4</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -49,6 +58,12 @@
     </ClCompile>
     <ClCompile Include="DailyPractice.cpp">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>SourceCode\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice\Day4\TestTemplate.cpp">
+      <Filter>SourceCode\Practice\Day4</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

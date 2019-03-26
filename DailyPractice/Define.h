@@ -17,6 +17,10 @@
 #define END_PRACTICE	}
 #define USING_PRACTICE	using namespace Practice;
 
+#define BEGIN_UTIL		namespace Practice::Util {
+#define END_UTIL		}
+#define USING_UTIL		using namespace Practice::Util;
+
 #define SAFE_DELETE(x)		{if(x!=nullptr){delete x; x = nullptr;}}
 
 #if _DEBUG

@@ -22,87 +22,10 @@ public:
 	}
 };
 
-
-static constexpr auto table = gen_table();
-
-
+// static constexpr auto table = gen_table();
 
 int main()
 {
-	using clock = std::chrono::high_resolution_clock;
-	using millisec = std::chrono::milliseconds;
-
-// 	for (auto const& row : table)
-// 	{
-// 		for (auto const& col : row)
-// 		{
-// 			std::cout << std::setw(2) << col << " ";
-// 			std::cout << '\n';
-// 		}
-// 	}
-
-	const int nCount = 1000000;
-
-	float fVal = 0;
-	for (int i = 0; i < 100; ++i)
-	{
-		fVal += MySqrt(i);
-	}
-
-
-	auto val = clock::now();
-
-	fVal = 0;
-	for (int i = 0; i < nCount; ++i)
-	{
-		fVal += MySqrt(i);
-	}
-
-	auto milliSec = std::chrono::duration_cast<millisec>(clock::now() - val);
-	cout << "mysqrt : 정수" << milliSec.count() << endl;
-	cout << fVal << endl;
-
-
-	val = clock::now();
-
-	fVal = 0;
-	for (int i = 0; i < nCount; ++i)
-	{
-		fVal += std::sqrt(i);
-	}
-
-	milliSec = std::chrono::duration_cast<millisec>(clock::now() - val);
-	cout << "sqrt : 정수" <<  milliSec.count() << endl;
-	cout << fVal << endl;
-
-
-
-
-
-	val = clock::now();
-
-	fVal = 0;
-	for (int i = 0; i < nCount; ++i)
-	{
-		fVal += MySqrt(i + 0.1f);
-	}
-
-	milliSec = std::chrono::duration_cast<millisec>(clock::now() - val);
-	cout << "mysqrt : 실수" << milliSec.count() << endl;
-	cout << fVal << endl;
-
-
-	val = clock::now();
-
-	fVal = 0;
-	for (int i = 0; i < nCount; ++i)
-	{
-		fVal += std::sqrt(i + 0.1f);
-	}
-
-	milliSec = std::chrono::duration_cast<millisec>(clock::now() - val);
-	cout << "sqrt : 실수" << milliSec.count() << endl;
-	cout << fVal << endl;
 
 
 
