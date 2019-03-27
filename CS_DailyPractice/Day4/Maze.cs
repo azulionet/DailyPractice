@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System;
+using System.Threading;
 
 namespace CS_DailyPractice.Day4
 {
@@ -101,14 +102,14 @@ namespace CS_DailyPractice.Day4
 				{
 					{1, 3, 1, 1, 1, 1, 1, 1, 1, 1},
 					{1, 0, 1, 0, 0, 0, 0, 0, 0, 1},
-					{1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-					{1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-					{1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-					{1, 0, 1, 0, 0, 0, 0, 1, 0, 1},
-					{1, 0, 1, 0, 1, 1, 1, 1, 0, 1},
-					{1, 0, 1, 0, 1, 0, 0, 1, 0, 1},
-					{1, 0, 0, 0, 1, 0, 0, 1, 0, 1},
-					{1, 1, 1, 1, 1, 1, 1, 1, 2, 1},
+					{1, 0, 1, 0, 1, 1, 1, 1, 1, 1},
+					{1, 0, 1, 0, 0, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 1, 0, 1, 0, 0, 0, 0, 1},
+					{1, 0, 1, 0, 1, 0, 1, 1, 0, 1},
+					{1, 0, 0, 0, 1, 0, 1, 0, 0, 1},
+					{1, 1, 1, 1, 1, 2, 1, 1, 1, 1},
 				};
 			}
 			void _MapSetting()
@@ -242,18 +243,42 @@ namespace CS_DailyPractice.Day4
 
 			m_liRoute.Add(MyPos);
 
-			_PrintMyPos();
+			_PrintMyPosUI();
 
 			// m_liRoute.FindIndex((a) => { return a.X == pt.X && a.Y == pt.Y; } );
 
-			while(_RoutePeek() != GoalPos.Value)
+			Console.ReadKey();
+
+			while (_RoutePeek() != GoalPos.Value)
 			{
-				Console.ReadKey();
+				// Console.ReadKey();
+
+				Thread.Sleep(100);
 
 				_RenewRoute();
 			}
 
-			Console.WriteLine("도착! : " + m_liRoute.Count);
+			Thread.Sleep(100);
+			_OptimizeRoute();
+
+			Console.SetCursorPosition(0, 12);
+			Console.WriteLine("도착! 최적화 ㄱㄱ");
+
+			MyPos = StartPos.Value;
+			int nIndex = 0;
+			_PrintMyPosUI();
+
+			while (MyPos != GoalPos.Value)
+			{
+				_ClearMyPosUI();
+				MyPos = m_liRoute[++nIndex];
+				_PrintMyPosUI();
+				
+				Thread.Sleep(100);
+			}
+
+			Console.SetCursorPosition(0, 13);
+			Console.WriteLine("도착 루트 : " + m_liRoute.Count);
 
 			return;			
 		}
@@ -271,7 +296,7 @@ namespace CS_DailyPractice.Day4
 
 				if (pt == null)
 				{
-					_TurnRight();
+					_TurnLeft();
 				}
 				else
 				{
@@ -281,7 +306,7 @@ namespace CS_DailyPractice.Day4
 				++nTurnCount;
 			}
 
-			_ClearMyPos();
+			_ClearMyPosUI();
 
 			if (pt == null)
 			{
@@ -294,8 +319,8 @@ namespace CS_DailyPractice.Day4
 					m_liRoute.Add(before.Value);
 
 					// 2번 움직이면 돌아왔던 방향
-					_TurnRight();
-					_TurnRight();
+					_TurnLeft();
+					_TurnLeft();
 
 					MyPos = _RoutePeek(); // 현재 위치를 이 위치로 갱신
 				}				
@@ -306,7 +331,7 @@ namespace CS_DailyPractice.Day4
 				MyPos = pt.Value;
 			}
 
-			_PrintMyPos();
+			_PrintMyPosUI();
 		}
 
 		static Point? _CheckRight()
@@ -315,7 +340,12 @@ namespace CS_DailyPractice.Day4
 			int y = (int)MyPos.Y;
 			Point? pt = null;
 
-			switch (myDir)
+			int n = ((int)myDir << 1);
+			if( n >= 16 ) { n = 1; }
+
+			eDir temp = (eDir)n;
+
+			switch (temp)
 			{
 				case eDir.Left:
 					if (x > 0 && _IsWalkable(m_MapOriginData[y, x - 1]) == true)
@@ -358,19 +388,24 @@ namespace CS_DailyPractice.Day4
 				}				
 			}
 
+			if( pt != null )
+			{
+				myDir = temp; // 방향 변경
+			}
+
 			return pt;
 		}
 
-		static void _TurnRight()
+		static void _TurnLeft()
 		{
 			int n = (int)myDir;
 
-			n <<= 1;
+			n >>= 1;
 
 			// 방향 최종 합이 15까지라 넘어서지 않도록 자름
-			if( n == 16 )
+			if( n == 0 )
 			{
-				n = 1;
+				n = (int)(eDir.Bottom);
 			}
 
 			myDir = (eDir)n;
@@ -401,13 +436,13 @@ namespace CS_DailyPractice.Day4
 			}
 		}
 
-		static void _ClearMyPos()
+		static void _ClearMyPosUI()
 		{
 			Console.SetCursorPosition((int)MyPos.X, (int)MyPos.Y);
 			Console.Write(" ");
 		}
 
-		static void _PrintMyPos()
+		static void _PrintMyPosUI()
 		{
 			Console.SetCursorPosition((int)MyPos.X, (int)MyPos.Y);
 			Console.Write("@");
@@ -427,6 +462,34 @@ namespace CS_DailyPractice.Day4
 			}
 
 			return m_liRoute[m_liRoute.Count - 2];
+		}
+
+		static void _OptimizeRoute()
+		{
+			int nCount = m_liRoute.Count;
+			for ( int i=0; i< nCount; ++i )
+			{
+				var li = m_liRoute.FindAll((a) => { return m_liRoute[i] == a; });
+
+				if( li.Count >= 2 )
+				{
+					nCount -= _RemoveRoute(m_liRoute[i]);
+				}
+			}
+			
+			return;
+
+			int _RemoveRoute(Point pt)
+			{
+				Predicate<Point> fpFindPt = (a) => { return a == pt; };
+
+				int nFirst = m_liRoute.FindIndex(fpFindPt);
+				int nSecond = m_liRoute.FindIndex(nFirst+1, fpFindPt);
+
+				m_liRoute.RemoveRange(nFirst + 1, nSecond - nFirst);
+				return nSecond - nFirst;
+			}
+
 		}
 	}
 }
