@@ -4,12 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using CS_DailyPractice.Day4;
+
 namespace CS_DailyPractice
 {
 	class Program
 	{
+		
+
 		static void Main(string[] args)
 		{
+			Maze.Update();
+
+			Maze.FindRoute();
+
+			Console.Read();
 
 		}
 	}
