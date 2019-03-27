@@ -12,6 +12,8 @@
 #include <cassert>
 #include <algorithm>
 #include <chrono>
+#include <queue>
+#include <stack>
 
 #define BEGIN_PRACTICE	namespace Practice {
 #define END_PRACTICE	}

@@ -91,7 +91,7 @@ class Pooler : Pool<T>
 private:
 	Pooler(size_t a_nCount)
 	{
-		AddPool(a_nCount);
+		// AddPool(a_nCount);
 	}
 
 	static Pooler* m_pInstance;
@@ -120,13 +120,8 @@ public:
 
 #pragma endregion
 
-	typedef T::IPoolDerived IPoolInterfaceGuard;
-
-
-
-
-
-}
+	// typedef T::IPoolDerived IPoolInterfaceGuard;
+};
 
 
 #define InstancingPool(TypeName, Count)	{ Pooler<TypeName>::Instancing(Count); }

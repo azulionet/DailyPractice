@@ -51,6 +51,9 @@
     <ClInclude Include="Practice\Day4\TestTemplate.h">
       <Filter>SourceCode\Practice\Day4</Filter>
     </ClInclude>
+    <ClInclude Include="Practice\Day0005.h">
+      <Filter>SourceCode\Practice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -62,8 +65,8 @@
     <ClCompile Include="Log.cpp">
       <Filter>SourceCode\Component</Filter>
     </ClCompile>
-    <ClCompile Include="Practice\Day4\TestTemplate.cpp">
-      <Filter>SourceCode\Practice\Day4</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

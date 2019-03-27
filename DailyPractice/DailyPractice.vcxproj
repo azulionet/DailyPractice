@@ -161,6 +161,7 @@
     <ClInclude Include="Practice\Day0002.h" />
     <ClInclude Include="Practice\Day0003.h" />
     <ClInclude Include="Practice\Day0004.h" />
+    <ClInclude Include="Practice\Day0005.h" />
     <ClInclude Include="Practice\Day4\TestTemplate.h" />
   </ItemGroup>
   <ItemGroup>
@@ -172,7 +173,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Practice\Day4\TestTemplate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

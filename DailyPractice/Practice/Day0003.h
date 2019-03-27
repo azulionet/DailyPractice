@@ -81,10 +81,6 @@ float MySqrt(float a_fVal)
 	return x;
 }
 
-
-
-
-
 // constexpr int CONST_EXPR_makeArrayConsecutive2(const int[] statues, const int b)
 // {
 // 	int nMin = INT_MAX;
@@ -106,9 +102,6 @@ float MySqrt(float a_fVal)
 // 
 // 	return nMax - nMin - nSize + 1;
 // }
-
-
-
 
 
 END_PRACTICE
