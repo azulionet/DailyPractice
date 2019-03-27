@@ -145,7 +145,7 @@ public: // 인터페이스
 		Recursive_TreeTraversal_InOrder(pNode->l);
 		Visit(pNode);
 		Recursive_TreeTraversal_InOrder(pNode->r);
-	}	
+	}
 
 	void Stack_TreeTraversal_InOrder(BNode* pNode)
 	{
@@ -162,7 +162,7 @@ public: // 인터페이스
 			s.push(pTemp->l);
 			pTemp = pTemp->l;
 		}
-		
+
 		pTemp = s.top();
 
 		while (true)
@@ -191,7 +191,7 @@ public: // 인터페이스
 				break;
 			}
 
-			pTemp = s.top();			
+			pTemp = s.top();
 		}
 	}
 
@@ -203,6 +203,75 @@ public: // 인터페이스
 		}
 
 		std::cout << a_pNode->v << std::endl;
+	}
+
+	void AddListLevelOrder(const std::vector<T>& a_liVal)
+	{
+		if (a_liVal.size() == 0) { return; }
+
+		std::queue<BNode*> q;
+
+		int nInsert = 0;
+		int nVcCount = a_liVal.size();
+
+		if (m_pRoot == nullptr)
+		{
+			m_pRoot = new BNode(a_liVal[nInsert]);
+			++nInsert;
+		}
+
+		q.push(m_pRoot);
+		while (nInsert < nVcCount)
+		{
+			BNode* p = q.front();
+			q.pop();
+
+			if (p->l == nullptr)
+			{
+				p->l = new BNode(a_liVal[nInsert++]);
+
+				if (nInsert == nVcCount)
+				{
+					break;
+				}
+
+				p->r = new BNode(a_liVal[nInsert++]);
+
+				q.push(p->l);
+				q.push(p->r);
+			}
+			else if (p->r == nullptr)
+			{
+				p->r = new BNode(a_liVal[nInsert++]);
+				q.push(p->r);
+			}
+			else
+			{
+				q.push(p->l);
+				q.push(p->r);
+			}
+		}
+	}
+
+	void TreeTraversal_LevelOrder(BNode* a_pNode)
+	{
+		if (a_pNode == nullptr) { return; }
+
+		std::queue<BNode*> q;
+		q.push(a_pNode);
+
+		while (q.size() > 0)
+		{
+			BNode* p = q.front();
+
+			q.pop();
+			if (p == nullptr) { continue; }
+
+			Visit(p);
+
+			q.push(p->l);
+			q.push(p->r);
+		}
 	}
 
 public:

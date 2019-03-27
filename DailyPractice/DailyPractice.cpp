@@ -3,6 +3,7 @@
 
 #include "pch.h"
 
+#include <vld.h>
 
 // #include "Practice/Day0001.h"
 // #include "Practice/Day0002.h"
@@ -29,19 +30,12 @@ int main()
 
 	BinaryTree<int> tree;
 
-	tree.AddValue(5);
-	tree.AddValue(3);
-	tree.AddValue(8);
-	tree.AddValue(2);
-	tree.AddValue(4);
+	tree.AddListLevelOrder({1,2,3,4,5,6,7,8,9,10});
+	tree.AddListLevelOrder({11, 12, 13, 14, 15, 16, 17, 18, 19, 20});
 
-	tree.AddValue(1);
-	tree.AddValue(7);
-	tree.AddValue(9);
-	tree.AddValue(6);
-	tree.AddValue(10);
+	tree.TreeTraversal_LevelOrder(tree.m_pRoot);
 
-	tree.Stack_TreeTraversal_InOrder(tree.m_pRoot);
+	
 	getchar();
 	return 0;
 }
