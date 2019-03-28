@@ -7,7 +7,7 @@
 
 // #include "Practice/Day0001.h"
 // #include "Practice/Day0002.h"
-#include "Practice/Day0005.h"
+#include "Practice/Day0006.h"
 
 using namespace std;
 
@@ -23,19 +23,21 @@ public:
 	}
 };
 
-// static constexpr auto table = gen_table();
+int differentValues(std::vector<int> a, int d)
+{
+	int q = 0;
+	for (int n : a)
+		for (int m : a)
+			m -= n,
+			m > d | m < q ? q : q = m;
+	return q ? q : -1;
+}
+
 
 int main()
 {
+	cout << differentValues({ 1,2,3 }, 0) << endl;
 
-	BinaryTree<int> tree;
-
-	tree.AddListLevelOrder({1,2,3,4,5,6,7,8,9,10});
-	tree.AddListLevelOrder({11, 12, 13, 14, 15, 16, 17, 18, 19, 20});
-
-	tree.TreeTraversal_LevelOrder(tree.m_pRoot);
-
-	
 	getchar();
 	return 0;
 }
