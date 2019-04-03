@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 using CS_DailyPractice.Day4;
 
+
+
 namespace CS_DailyPractice
 {
 	class Program
 	{
+
 		static void Main(string[] args)
 		{
 			Maze.Update();
-
 			Maze.FindRoute();
 
 			int a = 10;
@@ -23,9 +25,7 @@ namespace CS_DailyPractice
 
 
 			Console.WriteLine();
-
 			Console.Read();
-
 		}
 	}
 }

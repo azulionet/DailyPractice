@@ -2,18 +2,30 @@
 
 #include <Windows.h>
 #include <iostream>
+#include <fstream>
+
 #include <cstdlib>
 #include <iomanip>
 
 #include <array>
+#include <string>
 #include <vector>
 #include <list>
-#include <string>
+#include <map>
+#include <set>
+
+#include <queue>
+#include <stack>
+
 #include <cassert>
 #include <algorithm>
 #include <chrono>
-#include <queue>
-#include <stack>
+
+
+#pragma comment(lib, "Winmm.lib")
+
+
+// constexpr auto = var;
 
 #define BEGIN_PRACTICE	namespace Practice {
 #define END_PRACTICE	}

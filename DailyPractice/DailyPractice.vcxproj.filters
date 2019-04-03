@@ -57,6 +57,9 @@
     <ClInclude Include="Practice\Day0006.h">
       <Filter>SourceCode\Practice</Filter>
     </ClInclude>
+    <ClInclude Include="Practice\Day0007.h">
+      <Filter>SourceCode\Practice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
