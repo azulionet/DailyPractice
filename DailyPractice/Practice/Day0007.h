@@ -105,6 +105,101 @@ public:
 	A a;
 };
 
+constexpr double pow(double d, size_t n)
+{
+	double res = 1;
+
+	while (n > 0)
+	{
+		res *= d;
+		--n;
+	}
+
+	return res;
+}
+
+constexpr bool IsPowerOfTwo_NotOne(int n)
+{
+	if (n == 0 || n == 1) { return false; }
+
+
+}
+
+template<size_t nArSize>
+class Heap
+{
+	static_assert(nArSize == 0 ||
+				!IsPowerOfTwo_NotOne(nArSize), "block size must be 2^n");
+
+public:
+	Heap()
+	{
+		memset(nAr, 0, sizeof(int)*(nArSize+1));
+	}
+
+	Heap(std::initializer_list<int> li) : Heap()
+	{
+		for (int n : li)
+		{
+			Insert(n);
+		}
+	}
+
+	void Insert(int nVal)
+	{
+		if (nLast > nArSize)
+		{
+			return;
+		}
+
+		int nNow = nLast++;
+
+		while (nNow != 1)
+		{
+			int nParent = nNow >> 1;
+
+			if (nAr[nParent] > nVal)
+			{
+				break;
+			}
+			else
+			{
+				nAr[nNow] = nAr[nParent];
+				nNow = nParent;
+			}
+		}
+
+		nAr[nNow] = nVal;
+	}
+
+	void Print_LevelOrder()
+	{
+		for (int i = 1; i < nLast; ++i)
+		{
+			std::cout << nAr[i] << std::endl;
+		}
+	}
+
+	int Top()
+	{
+		if (nLast <= 1) { throw; }
+		return nAr[1];
+	}
+
+	int Pop()
+	{
+		if (nLast <= 1) { throw; }
+
+		int nReturn = Top();
+
+
+
+	}
+
+private:
+	int nAr[nArSize + 1];
+	int nLast = 1;
+};
 
 
 

@@ -6,6 +6,8 @@
 #include <vld.h>
 #include "Practice/Day0007.h"
 
+
+
 using namespace std;
 
 USING_PRACTICE
@@ -71,35 +73,17 @@ int main()
 // 	}
 
 
+	Heap<16> h{ 9, 7, 6, 5, 4, 3, 2, 2, 1, 3 };
 
-	PrintTwoWord("Hello", "World!!");
-
-	std::vector<std::string> vc{
-		"ab",
-		"bc",
-		"cd",
-		"ab",
-		"cc",
-		"de"
-	};
-
-	std::set<std::string> set
-	{
-		vc.begin(), vc.end()
-	};
-
-	for (auto val : set)
-	{
-		cout << val << endl;
-	}
+	h.Print_LevelOrder();
 
 
-	FileIO2();
 
-
-	B();
 	
-	getchar();
+
+
+
+
 
 	return 0;
 }

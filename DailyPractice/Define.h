@@ -19,6 +19,7 @@
 
 #include <cassert>
 #include <algorithm>
+#include <functional>
 #include <chrono>
 
 
