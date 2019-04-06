@@ -6,6 +6,18 @@ BEGIN_PRACTICE
 
 using namespace std;
 
+int MyMy;
+
+void InitMyMy()
+{
+	MyMy = 10;
+}
+
+int GetMy()
+{
+	return MyMy;
+}
+
 void Copy(std::vector<int>& a, std::vector<int>& b)
 {
 	b.clear();

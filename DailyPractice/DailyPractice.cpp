@@ -7,83 +7,80 @@
 #include "Practice/Day0007.h"
 
 
-
 using namespace std;
 
 USING_PRACTICE
 
-template<int N>
-class A
-{
-public:
-	constexpr A()
-	{
-		std::cout << N << "\n";
-	}
-};
+#include <cstdlib>
+#include <ctime>
 
-int differentValues(std::vector<int> a, int d)
+#pragma comment(lib, "winmm.lib")
+#include <windows.h>
+
+constexpr int Fibo(int n)
 {
-	int q = 0;
-	for (int n : a)
-		for (int m : a)
-			m -= n,
-			(m > d | m < q) ? q : q = m;
-	return q ? q : -1;
+	if (n <= 1) { return n; }
+	return Fibo(n - 2) + Fibo(n - 1);
 }
 
-int soSsSos(int _) { return ++_*--_*--_*9 / 0xc; }
+constexpr int Fibo2(int n)
+{
+	if (n <= 1) { return n; }
 
-int s(int _) { return ++_ + (++_ << 1); }
+	int n0 = 0;
+	int n1 = 1;
+
+	for (int i = 1; i < n; ++i)
+	{
+		(i%2 == 0) ? n1 += n0 : n0 += n1;
+	}
+
+	return n0 > n1 ? n0 : n1;
+}
 
 int main()
 {
-// 	std::vector<int> a = { 1,6,34, 8,3,2, 29, 3, 6, 1 };
-// 	std::vector<int> b;
-// 
-// 	Copy(a, b);
-// 
-// 	for (auto& val : b)
-// 	{
-// 		std::cout << val << '\t';
-// 	}
-// 
-// 	std::cout << endl;
-// 	std::cout << endl;
-// 
-// 	UniqueCopy(a, b);
-// 
-// 	for (auto& val : b)
-// 	{
-// 		std::cout << val << endl;
-// 	}
+	float fTimeStamp = timeGetTime();
 
-// 	std::list<int> a{ 1,2,3,4,5,6,11, 12, 13, 1,2,3 };
-// 
-// 	for (auto itor : Practice::FindAll(a, 1))
-// 	{
-// 		cout << *itor << endl;
-// 	}
-// 
-// 	std::vector<int> b{ 1,2,3,4,5,6,11, 12, 13, 1,2,3 };
-// 
-// 	for (auto vcItor : Practice::FindAll(b, 1) )
-// 	{
-// 		cout << *vcItor << endl;
-// 	}
+	cout << Fibo(25) << endl;
+	cout << timeGetTime() - fTimeStamp << endl;
 
+	int n = 25;
+	fTimeStamp = timeGetTime();
 
-	Heap<16> h{ 9, 7, 6, 5, 4, 3, 2, 2, 1, 3 };
-
-	h.Print_LevelOrder();
+	cout << Fibo(n) << endl;
+	cout << timeGetTime() - fTimeStamp << endl;
 
 
 
+
+	fTimeStamp = timeGetTime();
+
+	for (int i = 0; i < 20; ++i)
+	{
+		cout << Fibo2(50) << endl;
+	}
 	
+	cout << timeGetTime() - fTimeStamp << endl;
+
+
+	int n50 = 50;
+
+	fTimeStamp = timeGetTime();
+
+	for (int i = 0; i < 20; ++i)
+	{
+		cout << Fibo2(n50) << endl;
+	}
+	
+	cout << timeGetTime() - fTimeStamp << endl;
 
 
 
 
 
+
+
+	getchar();
 	return 0;
 }
