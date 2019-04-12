@@ -1,26 +1,5 @@
 #pragma once
 
-#include <Windows.h>
-#include <iostream>
-#include <fstream>
-
-#include <cstdlib>
-#include <iomanip>
-
-#include <array>
-#include <string>
-#include <vector>
-#include <list>
-#include <map>
-#include <set>
-
-#include <queue>
-#include <stack>
-
-#include <cassert>
-#include <algorithm>
-#include <functional>
-#include <chrono>
 
 
 #pragma comment(lib, "Winmm.lib")

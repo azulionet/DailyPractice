@@ -9,6 +9,32 @@
 #ifndef PCH_H
 #define PCH_H
 
+#include <Windows.h>
+#include <iostream>
+#include <fstream>
+
+#include <cstdlib>
+#include <iomanip>
+
+#include <array>
+#include <string>
+#include <vector>
+#include <list>
+#include <map>
+#include <set>
+
+#include <queue>
+#include <stack>
+
+#include <cassert>
+#include <algorithm>
+#include <functional>
+#include <chrono>
+#include <vld.h>
+
+#include <cstdlib>
+#include <ctime>
+
 #include "Define.h"
 
 #endif //PCH_H

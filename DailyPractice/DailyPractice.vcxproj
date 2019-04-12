@@ -163,6 +163,8 @@
     <ClInclude Include="Practice\Day0004.h" />
     <ClInclude Include="Practice\Day0005.h" />
     <ClInclude Include="Practice\Day0007.h" />
+    <ClInclude Include="Practice\Day0008.h" />
+    <ClInclude Include="Practice\Day0009.h" />
     <ClInclude Include="Practice\Day4\TestTemplate.h" />
     <ClInclude Include="Practice\Day0006.h" />
   </ItemGroup>
