@@ -1,96 +1,52 @@
 ﻿#include "pch.h"
 
-#include "Practice/Day0009.h"
+#include "Practice/Day_0010.h"
 
 
 USING_PRACTICE
 
 #include <cassert>
 
+constexpr float MySqrt(float a_fInput)
+{
+	float x = 1.0f;
+
+	for (int i = 0; i < 20; ++i)
+	{
+		x = (x + (a_fInput / x)) / 2;
+	}
+
+	return x;
+}
+
+
+
+#include <random>
 
 int main()
 {
 	using namespace std;
 
-	SimpleQueue q;
+	cout << sequenceElement2({ 7,5,4,4,8 }, 521687676) << endl;
 
-	cout << q.Size() << endl;
-
-	q.Push(1);
-	q.Push(2);
-	q.Push(3);
-	q.Push(4);
-	q.Push(5);
-
-	if (q.GetBufferSize() > q.Size())
+	/*
+	cout << FindRepeat({ 1,1,1,0}, [](int* p, int n)
 	{
-		q.Push(1);
-		cout << "push" << endl;
+		n %= 4;
+
+		return n == 3 ? 0 : 1;
 	}
+	) << endl;
 
-	cout << q.Size() << endl;
-
-
-	q.Pop();
-	cout << q.Size() << endl;
-
-	q.Pop();
-	cout << q.Size() << endl;
-
-	q.Pop();
-	cout << q.Size() << endl;
-
-	for (int i = 0; i < 5; ++i)
-	{
-		int nSize = q.Size();
-		cout << nSize << endl;
-
-		if (q.GetBufferSize() > q.Size())
+	cout << FindRepeat({ 1,2,3,4,5 },
+		[](int* p, int n)
 		{
-			q.Push(1);
-			cout << "push" << endl;
+			p += n;		
+			return (p[-1] + p[-2] + p[-3] + p[-4] + p[-5]) %10;
 		}
-		else
-		{
-			cout << "NoPush" << endl;
-		}
-	}
+	) << endl;
+	*/
 
-	for (int i = 0; i < 10; ++i)
-	{
-		if (q.GetBufferSize() > q.Size())
-		{
-			q.Push(1);
-			cout << "push" << endl;
-		}
-		else
-		{
-			cout << "NoPush" << endl;
-		}
-
-		if (q.GetBufferSize() > q.Size())
-		{
-			q.Push(1);
-			cout << "push" << endl;
-		}
-		else
-		{
-			cout << "NoPush" << endl;
-		}
-
-		if (q.GetBufferSize() > q.Size())
-		{
-			q.Push(1);
-			cout << "push" << endl;
-		}
-		else
-		{
-			cout << "NoPush" << endl;
-		}
-
-		q.Pop();
-	}
-	
 
 	getchar();
 }

@@ -8,9 +8,9 @@ BEGIN_PRACTICE
 // https ://app.codesignal.com/arcade/intro/level-2/bq2XnSr5kbHqpHGJC
 size_t makeArrayConsecutive2(std::vector<int> statues)
 {
-	auto[min, max] = std::minmax_element(std::begin(statues), std::end(statues));
+	auto[minItor, maxItor] = std::minmax_element(std::begin(statues), std::end(statues));
 	
-	return std::abs(*max-*min) - statues.size() + 1;
+	return std::abs(*maxItor-*minItor) - statues.size() + 1;
 }
 
 // cpp레퍼런스 예제
