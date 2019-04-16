@@ -1,51 +1,80 @@
 ﻿#include "pch.h"
 
-#include "Practice/Day_0010.h"
+#include "Practice/Day0011.h"
 
 
 USING_PRACTICE
 
 #include <cassert>
 
-constexpr float MySqrt(float a_fInput)
-{
-	float x = 1.0f;
 
-	for (int i = 0; i < 20; ++i)
+struct WeaponData
+{
+	int nID;
+	int nData;
+
+	static const char* GetTableName() { return "Weapon"; }
+};
+
+struct ArmorData
+{
+	int nID;
+	int nData;
+
+	static const char* GetTableName() { return "Armor"; }
+};
+
+
+template<typename T>
+class Table
+{
+	static Table* m_pInstance;
+
+public:
+	
+	static Table* GetInstance()
 	{
-		x = (x + (a_fInput / x)) / 2;
+		if (m_pInstance == nullptr)
+		{
+			m_pInstance = new Table<T>();
+		}
+
+		return m_pInstance;
 	}
 
-	return x;
-}
+	T* GetTable(int a_nID)
+	{
+		std::cout << T::GetTableName() << std::endl;
+
+		auto itor = m_mapTb.find(a_nID);
+		if (itor != std::end(m_mapTb))
+		{
+			return &(*itor).second;
+		}
+
+		return nullptr;
+	}
+private:
+	std::map<int, T> m_mapTb;
+};
 
 
+template<>
+Table<WeaponData>* Table<WeaponData>::m_pInstance = nullptr;
 
-#include <random>
+template<>
+Table<ArmorData>* Table<ArmorData>::m_pInstance = nullptr;
+
+#define GetWeaponTb(n) ( Table<WeaponData>::GetInstance()->GetTable((n)) )
+#define GetArmorTb(n) ( Table<ArmorData>::GetInstance()->GetTable((n)) )
 
 int main()
 {
 	using namespace std;
 
-	cout << sequenceElement2({ 7,5,4,4,8 }, 521687676) << endl;
-
-	/*
-	cout << FindRepeat({ 1,1,1,0}, [](int* p, int n)
-	{
-		n %= 4;
-
-		return n == 3 ? 0 : 1;
-	}
-	) << endl;
-
-	cout << FindRepeat({ 1,2,3,4,5 },
-		[](int* p, int n)
-		{
-			p += n;		
-			return (p[-1] + p[-2] + p[-3] + p[-4] + p[-5]) %10;
-		}
-	) << endl;
-	*/
+	GetWeaponTb(1);
+	GetArmorTb(1);
+	
 
 
 	getchar();

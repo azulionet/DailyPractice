@@ -6,7 +6,8 @@ BEGIN_PRACTICE
 
 const int nSameCount = 100;
 
-typedef int(*fpNextVal)(int*, int);
+// typedef int(*fpNextVal)(int*, int);
+using fpNextVal = int(*)(int*, int);
 
 constexpr int ProblemBuffer()
 {

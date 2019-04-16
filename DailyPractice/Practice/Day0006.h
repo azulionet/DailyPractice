@@ -54,7 +54,7 @@ inline void SwapNormalInline(T& a, T& b)
 	b = t;
 }
 
-void Test()
+void Test222()
 {
 	int a = 10, b = 5;
 
