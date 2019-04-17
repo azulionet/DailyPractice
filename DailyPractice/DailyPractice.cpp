@@ -1,81 +1,60 @@
 ﻿#include "pch.h"
 
-#include "Practice/Day0011.h"
+#include "Practice/Day0009.h"
 
 
 USING_PRACTICE
 
 #include <cassert>
 
+using namespace std;
 
-struct WeaponData
+class Printable
 {
-	int nID;
-	int nData;
-
-	static const char* GetTableName() { return "Weapon"; }
+public:
+	int GetValue() const
+	{
+		return 10;
+	}
 };
 
-struct ArmorData
-{
-	int nID;
-	int nData;
 
-	static const char* GetTableName() { return "Armor"; }
+class Printable2
+{
+public:
+	int GetValue() const
+	{
+		return 2;
+	}
 };
 
+class Printable3
+{
+public:
+	int GetValue() const
+	{
+		return 3;
+	}
+};
+
+using namespace std;
 
 template<typename T>
-class Table
+ostream& operator<<(ostream& o, const T& p)
 {
-	static Table* m_pInstance;
+	o << p.GetValue();
+	return o;
+}
 
-public:
-	
-	static Table* GetInstance()
-	{
-		if (m_pInstance == nullptr)
-		{
-			m_pInstance = new Table<T>();
-		}
-
-		return m_pInstance;
-	}
-
-	T* GetTable(int a_nID)
-	{
-		std::cout << T::GetTableName() << std::endl;
-
-		auto itor = m_mapTb.find(a_nID);
-		if (itor != std::end(m_mapTb))
-		{
-			return &(*itor).second;
-		}
-
-		return nullptr;
-	}
-private:
-	std::map<int, T> m_mapTb;
-};
-
-
-template<>
-Table<WeaponData>* Table<WeaponData>::m_pInstance = nullptr;
-
-template<>
-Table<ArmorData>* Table<ArmorData>::m_pInstance = nullptr;
-
-#define GetWeaponTb(n) ( Table<WeaponData>::GetInstance()->GetTable((n)) )
-#define GetArmorTb(n) ( Table<ArmorData>::GetInstance()->GetTable((n)) )
+// 오퍼레이션 오버로딩 ostream, Printable 함수 제작 ㄱ
 
 int main()
 {
 	using namespace std;
 
-	GetWeaponTb(1);
-	GetArmorTb(1);
-	
-
+	cout << Printable{} << endl;
+	cout << Printable2{} << endl;
+	cout << Printable3{} << endl;
 
 	getchar();
 }
