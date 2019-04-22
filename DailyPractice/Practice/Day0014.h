@@ -17,6 +17,8 @@ public:
 	{
 		if (p == nullptr) { assert("arg error"); return; }
 
+		cout << "생성자" << endl;
+
 		size_t nLen = strlen(p);
 		m_pBuffer = new char[nLen + 1];
 		strcpy_s(m_pBuffer, nLen + 1, p);
@@ -25,11 +27,14 @@ public:
 	}
 
 	// 복사 생성자
-	MyString(const MyString& t) : MyString(t.m_pBuffer) { };
+	MyString(const MyString& t) : MyString(t.m_pBuffer) {
+		cout << "복사 생성자" << endl;
+	};
 
 	// 이동 생성자
 	MyString(MyString&& tt) : m_pBuffer(tt.m_pBuffer), m_nSize(tt.m_nSize)
 	{
+		cout << "이동 생성자" << endl;
 		tt.m_pBuffer = nullptr;
 		tt.m_nSize = 0;
 	}
@@ -43,6 +48,8 @@ public: // operator ------------------------------------------------------------
 	
 	void operator=(const MyString& t)
 	{
+		cout << "대입 연산자" << endl;
+
 		SAFE_DELETE_ARR(m_pBuffer);
 
 		int nLen = t.m_nSize;
@@ -54,6 +61,8 @@ public: // operator ------------------------------------------------------------
 
 	void operator=(MyString&& tt)
 	{
+		cout << "대입 연산자 - rvalue" << endl;
+
 		SAFE_DELETE_ARR(m_pBuffer);
 
 		m_pBuffer	= tt.m_pBuffer;
@@ -112,6 +121,16 @@ public: // operator ------------------------------------------------------------
 		return this->operator+=(t.GetBuffer());
 	}
 
+	MyString& operator+=(MyString&& t)
+	{
+		operator+=(t.GetBuffer());
+
+		t.m_pBuffer = nullptr;
+		t.m_nSize = 0;
+
+		return (*this);
+	}
+
 public: // 인터페이스 -------------------------------------------------------------------------------------------
 
 	char* GetBuffer() const { return m_pBuffer; }
@@ -131,6 +150,22 @@ private:
 	char* m_pBuffer = nullptr;
 	size_t m_nSize = 0;
 };
+
+template<typename T>
+void MySwap(T& a, T& b)
+{
+	auto t = std::move(a);
+	a = std::move(b);
+	b = std::move(t);
+}
+
+template<typename T>
+void MySwapR(T& a, T& b)
+{
+	auto t = a;
+	a = b;
+	b = t;
+}
 
 
 END_PRACTICE

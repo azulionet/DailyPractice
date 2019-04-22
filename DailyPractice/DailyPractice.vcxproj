@@ -170,6 +170,7 @@
     <ClInclude Include="Practice\Day0012.h" />
     <ClInclude Include="Practice\Day0014.h" />
     <ClInclude Include="Practice\Day0015.h" />
+    <ClInclude Include="Practice\Day0016.h" />
     <ClInclude Include="Practice\Day15\GameScene.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>

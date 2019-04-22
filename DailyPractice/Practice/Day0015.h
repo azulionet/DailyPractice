@@ -99,19 +99,52 @@ struct CheckDiv
 
 
 
+
+template<size_t N>
+struct DropTheBit
+{
+	enum
+	{
+		Val = (DropTheBit<N / 10>::Val*2) + DropTheBit<N % 2>::Val
+	};
+};
+
+template<>
+struct DropTheBit<0>
+{
+	enum { Val = 0 };
+};
+
+template<>
+struct DropTheBit<1>
+{
+	enum { Val = 1 };
+};
+
+
+
+
+void Recursive() {} // 종료를 위해 필요
+
+template<typename T, typename... Types> void Recursive(T value, Types... args)
+{
+	static int n = 0;
+	n++;
+	cout << n << endl;
+
+	cout << typeid(T).name() << " : " << value << endl;
+
+	Recursive(args...);
+}
+
+
 void TestFunctional15()
 {
-	cout << Fibo<1>::N << endl;
-	
-	// FF e;
-
-	// std::function<int(int, int)> pp = std::bind(&FF::Add, ref(e), 10, _1);
-
-	// auto p = mem_fn(&FF::Add);	
-	// cout << p(e, 1, 2) << endl;
-
-// 	std::function<int(int, int)> a = 
-
+	// Recursive(1, 2.5f, 3.2, 4, 5, 6);
+	cout << DropTheBit<1101>::Val << endl;
+	cout << DropTheBit<1111>::Val << endl;
+	cout << DropTheBit<1>::Val << endl;
+	cout << DropTheBit<111>::Val << endl;
 
 }
 

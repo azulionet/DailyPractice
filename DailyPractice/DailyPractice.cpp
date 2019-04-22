@@ -188,10 +188,21 @@ int main()
 
 	cout << Add(1, 1) << endl;
 	cout << Add(1.3f, 1.5f) << endl;
-
 	*/
 
-	TestFunctional15();
+	MyString a = "abc";
+	MyString b = "def";
+
+	cout << endl << endl;
+	cout << "Swap!!" << endl;
+
+	MySwap(a, b);
+
+	cout << a.GetBuffer() << endl;
+	cout << b.GetBuffer() << endl;
+
+
 
 	getchar();
 }
+
