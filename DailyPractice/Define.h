@@ -16,6 +16,7 @@
 #define USING_UTIL		using namespace Practice::Util;
 
 #define SAFE_DELETE(x)		{if(x!=nullptr){delete x; x = nullptr;}}
+#define SAFE_DELETE_ARR(x)	{if(x!=nullptr){delete[] x; x = nullptr;}}
 
 #if _DEBUG
 

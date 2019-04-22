@@ -27,6 +27,7 @@
 #include <stack>
 
 #include <cassert>
+#include <memory>
 #include <algorithm>
 #include <functional>
 #include <chrono>
@@ -36,5 +37,7 @@
 #include <ctime>
 
 #include "Define.h"
+
+using namespace std;
 
 #endif //PCH_H

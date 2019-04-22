@@ -22,6 +22,9 @@
     <Filter Include="SourceCode\Practice\Day4">
       <UniqueIdentifier>{6b756467-839c-4e69-9d87-b230c66e3dbe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SourceCode\Practice\Day15">
+      <UniqueIdentifier>{65c77778-cc45-44f0-be8e-0053d7b8633b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -72,6 +75,33 @@
     <ClInclude Include="Practice\Day0011.h">
       <Filter>SourceCode\Practice</Filter>
     </ClInclude>
+    <ClInclude Include="Practice\Day0012.h">
+      <Filter>SourceCode\Practice</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day_0013.h">
+      <Filter>SourceCode\Practice</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day0014.h">
+      <Filter>SourceCode\Practice</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day15\Define.h">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day15\Scene.h">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day15\SceneManager.h">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day15\IntroScene.h">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day15\GameScene.h">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClInclude>
+    <ClInclude Include="Practice\Day0015.h">
+      <Filter>SourceCode\Practice</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -82,6 +112,18 @@
     </ClCompile>
     <ClCompile Include="Log.cpp">
       <Filter>SourceCode\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice\Day15\Scene.cpp">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice\Day15\SceneManager.cpp">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice\Day15\IntroScene.cpp">
+      <Filter>SourceCode\Practice\Day15</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice\Day15\GameScene.cpp">
+      <Filter>SourceCode\Practice\Day15</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
