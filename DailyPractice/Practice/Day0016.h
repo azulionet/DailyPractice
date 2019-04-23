@@ -134,4 +134,33 @@ public:
 	}
 };
 
+using namespace  std;
+
+
+class Ref
+{
+public:
+
+	Ref(std::string&& s) noexcept	{ cout << "&& ctor" << endl; mStr = std::move(s); }
+	Ref(const std::string& s)		{ cout << "&ctor" << endl; mStr = s; }
+
+	// int A() & { std::cout << __FUNCTION__ << " : " << "&" << std::endl; return m_nData; }
+	int A() const& { std::cout << __FUNCTION__ << " : " << "const &" << std::endl; return m_nData; }
+	int A() && { std::cout << __FUNCTION__ << " : " << "&&" << std::endl; return m_nData; }
+
+	// &&버전 없을시
+	// const std::string& Str() const	{ cout << "const" << endl;  return mStr; }
+	// std::string&& Str()				{ cout << "&&" << endl;  return std::move(mStr); }
+
+	// &&버전 존재
+	const std::string& Str() const&		{ cout << "const" << endl;  return mStr; }
+	std::string&& Str() &				{ cout << "&&" << endl;  return std::move(mStr); }
+	std::string&& Str() &&				{ cout << "&&" << endl;  return std::move(mStr); }
+
+	std::string mStr = "hello";
+	int m_nData = 0;
+};
+
+
+
 END_PRACTICE

@@ -2,6 +2,7 @@
 
 #include "Practice/Day0014.h"
 #include "Practice/Day0015.h"
+#include "Practice/Day0016.h"
 
 
 USING_PRACTICE
@@ -141,7 +142,7 @@ int main()
 	/*
 	AA<int(int)> ee;
 
-	ee.Set([](int a) {return 10; });	
+	ee.Set([](int a) {return 10; });
 	AA<int(int)>::Call([](int a) {return 10; },6);
 
 	AA<int(int)>::Call(AAA, 2);
@@ -158,7 +159,7 @@ int main()
 
 
 	std::function<int_int> eeff = [](int a) {return a * a; };
-	
+
 	cout << "eeff" << endl;
 	cout << eeff(10) << endl;
 
@@ -190,18 +191,13 @@ int main()
 	cout << Add(1.3f, 1.5f) << endl;
 	*/
 
-	MyString a = "abc";
-	MyString b = "def";
-
-	cout << endl << endl;
-	cout << "Swap!!" << endl;
-
-	MySwap(a, b);
-
-	cout << a.GetBuffer() << endl;
-	cout << b.GetBuffer() << endl;
 
 
+
+
+
+
+	// eeeee();
 
 	getchar();
 }

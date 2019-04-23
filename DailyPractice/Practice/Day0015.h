@@ -145,11 +145,32 @@ void TestFunctional15()
 	cout << DropTheBit<1111>::Val << endl;
 	cout << DropTheBit<1>::Val << endl;
 	cout << DropTheBit<111>::Val << endl;
-
 }
 
 
+struct E
+{
+	E(int _b, int _c) : b(_b), c(_c) { }
+	E(E&& a) noexcept : b{ a.b }, c{ a.c }  { cout << "E : && " << endl; }
+	E(const E& a) : b{ a.b }, c{ a.c }  { cout << "c E : & " << endl; }
+
+	int b = 0;
+	int c = 1;
+};
 
 
+void eeeee()
+{
+	std::vector<E> a;
+
+	a.emplace_back(1, 1);
+	a.emplace_back(2, 2);
+	a.emplace_back(3, 3);
+
+
+
+	
+
+}
 
 END_PRACTICE
