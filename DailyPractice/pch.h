@@ -10,11 +10,12 @@
 #define PCH_H
 
 #include <Windows.h>
-#include <iostream>
-#include <fstream>
+#include <cassert>
 
-#include <cstdlib>
+#include <iostream>
 #include <iomanip>
+#include <fstream>
+#include <cstdlib>
 
 #include <array>
 #include <string>
@@ -22,16 +23,17 @@
 #include <list>
 #include <map>
 #include <set>
+#include <deque>
 
 #include <queue>
 #include <stack>
 
-#include <cassert>
 #include <memory>
 #include <algorithm>
 #include <functional>
 #include <chrono>
 #include <vld.h>
+#include <type_traits>
 
 #include <cstdlib>
 #include <ctime>
@@ -39,5 +41,8 @@
 #include "Define.h"
 
 using namespace std;
+
+using std::cout;
+using std::endl;
 
 #endif //PCH_H

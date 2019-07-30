@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 
 
@@ -29,7 +29,7 @@
 #endif
 
 
-// 12 »¡°­, 15 °ËÁ¤, 10 ³ì»ö
+// 12 ë¹¨ê°•, 15 ê²€ì •, 10 ë…¹ìƒ‰
 #define EXPECT_EQ_DBG(x, y) \
 { \
  \
@@ -51,3 +51,4 @@
 		std::cout << "]" << std::endl; \
 	} \
 }
+
