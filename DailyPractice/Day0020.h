@@ -64,6 +64,16 @@ public:
 
 		return *this;
 	}
+
+	TestSimpleSharedPtr& operator=(nullptr_t null)
+	{
+		Decrease();
+
+		m_Pointer = nullptr;
+		m_pReferenceCount = nullptr;
+
+		return *this;
+	}
 	
 	T& operator*() const { return m_Pointer; }
 	T* operator->() const { return *m_Pointer; }
