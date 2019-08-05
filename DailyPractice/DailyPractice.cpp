@@ -1,23 +1,43 @@
 ﻿#include "pch.h"
 
-#include "Practice/Day0014.h"
-#include "Practice/Day0015.h"
-#include "Practice/Day0016.h"
 
 
-USING_PRACTICE
 
 using namespace std;
 
-#include "Day0018.h"
-#include "Day0019.h"
+
+class Test1
+{
+public:
+	Test1(const char* name) : myName(name)
+	{
+	}
+
+	~Test1()
+	{
+		cout << myName << endl;
+	}
+
+	const char* myName;
+};
+
+#include <memory>
 
 int main()
 {
-	// Test(1);
-	Test(1);
+	std::shared_ptr<Test1> a(new Test1("hi"));
 
+	{
+		std::shared_ptr<Test1> b(new Test1("hello"));
+
+		a = b;
+	}
 	
+	cout << "aaaa" << endl;
+	cout << a->myName << endl;
+	cout << "aaaa" << endl;
+
+
 	getchar();
 	return 0;
 }

@@ -160,6 +160,7 @@
     <ClInclude Include="Day0017.h" />
     <ClInclude Include="Day0018.h" />
     <ClInclude Include="Day0019.h" />
+    <ClInclude Include="Day0020.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="pch.h" />
