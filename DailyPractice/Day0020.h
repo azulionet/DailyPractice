@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+/*
 template<typename T>
 class TestSimpleAutoPtr
 {
@@ -17,6 +18,7 @@ public:
 private:
 	T* m_Pointer = nullptr;
 };
+*/
 
 template<typename T>
 class TestSimpleSharedPtr
@@ -43,7 +45,7 @@ public:
 		}
 	}
 
-	TestSimpleSharedPtr(SmartPtr&&) = delete;
+	TestSimpleSharedPtr(TestSimpleSharedPtr&&) = delete;
 
 	~TestSimpleSharedPtr()
 	{
@@ -54,8 +56,8 @@ public:
 	{
 		Decrease();
 
-		m_Pointer = c->m_Pointer;
-		m_pReferenceCount = c->m_pReferenceCount;
+		m_Pointer = c.m_Pointer;
+		m_pReferenceCount = c.m_pReferenceCount;
 
 		if (m_pReferenceCount != nullptr)
 		{
@@ -76,7 +78,7 @@ public:
 	}
 	
 	T& operator*() const { return m_Pointer; }
-	T* operator->() const { return *m_Pointer; }
+	T* operator->() const { return m_Pointer; }
 
 	int ReferenceCount() { return (m_pReferenceCount == nullptr) ? 0 : *m_pReferenceCount; }
 
@@ -99,4 +101,34 @@ private:
 private:
 	T* m_Pointer;
 	int* m_pReferenceCount;
+};
+
+
+class A
+{
+
+private:
+
+	static inline TestSimpleSharedPtr<A> m_pInstance = nullptr;
+
+public:
+
+	static void CreateInstance()
+	{
+		m_pInstance = TestSimpleSharedPtr<A>();
+	}
+
+	static A* GetInstance()
+	{
+		return m_pInstance.operator->();
+	}
+
+
+public:
+
+	void Print()
+	{
+		cout << "endl" << endl;
+	}
+
 };
