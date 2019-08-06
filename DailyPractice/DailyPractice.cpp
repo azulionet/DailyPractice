@@ -1,42 +1,53 @@
 ﻿#include "pch.h"
 
-
-
-
 using namespace std;
 
+#include <memory>
+#include "Day0021.h"
 
-class Test1
+class Base
 {
+protected:
+	int i;
 public:
-	Test1(const char* name) : myName(name)
+	Base(int a) { i = a; }
+	virtual void display() const
 	{
+		cout << "I am Base class object, i = " << i << endl;
 	}
-
-	~Test1()
-	{
-		cout << myName << endl;
-	}
-
-	const char* myName;
 };
 
-#include <memory>
+class Derived : public Base
+{
+	int j;
+public:
+	Derived(int a, int b) : Base(a) { j = b; }
+	virtual void display() const
+	{
+		cout << "I am Derived class object, i = "
+			<< i << ", j = " << j << endl;
+	}
+};
+
+void somefunc(const Base& obj)
+{
+	obj.display();
+}
+
+void somefunc2(Base obj)
+{
+	obj.display();
+}
+
 
 int main()
 {
-	std::shared_ptr<Test1> a(new Test1("hi"));
-
-	{
-		std::shared_ptr<Test1> b(new Test1("hello"));
-
-		a = b;
-	}
-	
-	cout << "aaaa" << endl;
-	cout << a->myName << endl;
-	cout << "aaaa" << endl;
-
+	Base b(33);
+	Derived d(45, 54);
+	somefunc(b);
+	somefunc(d);
+	somefunc2(b);
+	somefunc2(d);
 
 	getchar();
 	return 0;

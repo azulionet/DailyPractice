@@ -1,6 +1,6 @@
-#pragma once
+﻿#pragma once
 
-BEGIN_UTIL
+// BEGIN_UTIL
 
 class Debug
 {
@@ -9,5 +9,5 @@ public:
 
 };
 
-END_UTIL
+// END_UTIL
 

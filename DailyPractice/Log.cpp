@@ -1,7 +1,7 @@
-#include "pch.h"
+Ôªø#include "pch.h"
 #include "Log.h"
 
-BEGIN_UTIL
+// BEGIN_UTIL
 
 /*
 using clock = std::chrono::system_clock;
@@ -46,7 +46,7 @@ public static string Log(string a_sLog,
 	return s.ToString();
 }
 
-// assertµµ ∞‚«‘
+// assertÎèÑ Í≤∏Ìï®
 public static string LogError(string a_sLog,
 	string a_sFileName = Path.sLogFile,
 	[CallerFilePath] string a_sFilePath = "",
@@ -60,4 +60,4 @@ public static string LogError(string a_sLog,
 
 */
 
-END_UTIL
+// END_UTIL

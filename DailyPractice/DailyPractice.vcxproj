@@ -93,7 +93,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp14</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,6 +161,7 @@
     <ClInclude Include="Day0018.h" />
     <ClInclude Include="Day0019.h" />
     <ClInclude Include="Day0020.h" />
+    <ClInclude Include="Day0021.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="pch.h" />
