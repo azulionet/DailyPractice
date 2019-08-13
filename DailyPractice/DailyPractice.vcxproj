@@ -205,6 +205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DailyPractice.cpp" />
+    <ClCompile Include="Day0022.h" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

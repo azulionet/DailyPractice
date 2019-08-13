@@ -15,6 +15,16 @@ public:
 	using Iter = typename Container::iterator;
 	using type = typename T;
 
+	Iter begin()
+	{
+		return m_Val.begin();
+	}
+
+	Iter end()
+	{
+		return m_Val.end();
+	}
+
 	void Push(const T& val)
 	{
 		m_Val.push_back(val);
@@ -35,15 +45,7 @@ public:
 		return m_Val.size();
 	}
 
-	Iter begin()
-	{
-		return m_Val.begin();
-	}
 
-	Iter end()
-	{
-		return m_Val.end();
-	}
 
 	Container m_Val;
 };

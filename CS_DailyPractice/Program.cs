@@ -18,7 +18,6 @@ namespace CS_DailyPractice
 			Maze.Update();
 			Maze.FindRoute();
 
-			int a = 10;
 
 			// a>10 ?: Console.Write("a");
 
