@@ -1,6 +1,4 @@
-﻿#include "pch.h"
-
-using namespace std;
+﻿#pragma once
 
 
 template<typename T, typename U, size_t n = 20, size_t ee = 30>
@@ -13,14 +11,9 @@ public:
 		cout << "Normal des" << endl;
 	}
 
-	~A()
-	{
-		cout << "Normal dtor" << endl;
-	}
-
 	void Init()
 	{
-		cout  << "a : " << a << endl;
+		cout << "a : " << a << endl;
 		cout << "b : " << b << endl;
 		cout << n << endl;
 	}
@@ -33,11 +26,6 @@ template<>
 A<int, int>::A()
 {
 	cout << "int int" << endl;
-}
-
-A<int, int>::~A()
-{
-	cout << "int int dtor" << endl;
 }
 
 
@@ -59,14 +47,3 @@ void MyTestabcd()
 	d.Init();
 	e.Init();
 }
-
-int main()
-{
-
-
-	MyTestabcd();
-
-	getchar();
-	return 0;
-}
-

@@ -120,6 +120,12 @@
     <ClInclude Include="Day0021.h">
       <Filter>SourceCode\Practice</Filter>
     </ClInclude>
+    <ClInclude Include="Day0023.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0024.h">
+      <Filter>SourceCode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
