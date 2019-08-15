@@ -29,13 +29,14 @@
 	#define IN
 #endif
 
+#pragma region WINDOW_FUNC
 
 enum class CURSOR_TYPE { NOCURSOR, SOLIDCURSOR, NORMALCURSOR };
 
 void SetCursor(const COORD& a_stPos);
 void SetCursor(int a_nPosX, int a_nPosY);
 void SetCursorType(CURSOR_TYPE c);
-void SetConsoleSize(int a_nWidth, int a_nHeight, int a_nX = 200, int a_nY = 200);
+void SetConsoleSize(int a_nWidth, int a_nHeight, int a_nX = 20, int a_nY = 20);
 
 void SetCursor(const COORD& a_stPos)
 {
@@ -75,6 +76,8 @@ void SetConsoleSize(int a_nWidth, int a_nHeight, int a_nX, int a_nY)
 	MoveWindow(console, a_nX, a_nY, a_nWidth, a_nHeight, TRUE);
 }
 
+#pragma endregion
+
 
 using std::cout;
 using std::endl;
@@ -90,8 +93,6 @@ public:
 
 	static inline int randPool[size] = { 0, };
 	static inline int index = 0;
-
-
 
 	void static Init()
 	{
@@ -132,22 +133,16 @@ constexpr int nMakeMaxCountPerFrame = 100;
 constexpr int nRunObjectCount = 10000;
 constexpr int nTargetFrame = 60;
 
-constexpr int nBoardX = 500;
+constexpr int nBoardX = 50;
 constexpr int nBoardY = 20;
 
-constexpr float fBulletMaxSpeed = 17;
-constexpr float fBulletMinSpeed = 3;
+constexpr float fBulletMaxSpeed = 0.01;
+constexpr float fBulletMinSpeed = 0.01;
 constexpr float fBulletMaxLife = 3;
 constexpr float fBulletMinLife = 2;
 
 using fpRenderFunction = std::function<void(float x, float y, bool bRend)>;
 using fpMoveFunction = std::function<void(OUT float& x, OUT float& y, IN float speed)>;
-
-// 테스트 세팅용
-constexpr eCaching g_eCache = eCaching::Yes;
-constexpr eRenderingType g_eRender = eRenderingType::Buffer;
-using PoolTarget = Bullet;
-using UsingContainer = std::vector<PoolTarget*>;
 
 class Bullet
 {
@@ -176,17 +171,21 @@ public:
 	{
 		this->data = data;
 
-		assert(a_fpRender && a_fpClear && a_fpMove);
+		assert(a_fpRender && a_fpClear);
 
 		fpFuncRender = a_fpRender;
 		fpFuncClear = a_fpClear;
-		fpMove = a_fpMove;
+		// fpMove = a_fpMove;
 	}
 
 	bool Update(float delta)
 	{
 		fpFuncClear(data.x, data.y, bRenderBeforeFrame); // 지우기
-		fpMove(data.x, data.y, delta * data.speed);
+		
+		// fpMove(data.x, data.y, delta * data.speed);
+
+		data.x += (data.speed * data.dirx);
+		data.y += (data.speed * data.diry);
 
 		// true면 화면 바깥. 액티브에서 뺌
 		data.life -= delta;
@@ -200,6 +199,11 @@ public:
 	}
 };
 
+// 테스트 세팅용
+constexpr eCaching g_eCache = eCaching::Yes;
+constexpr eRenderingType g_eRender = eRenderingType::Buffer;
+using PoolTarget = Bullet;
+using UsingContainer = std::vector<PoolTarget*>;
 
 template<typename T = PoolTarget,
 	typename C = UsingContainer,
@@ -257,7 +261,7 @@ public:
 	void Remove(C& from, T* remove)
 	{
 		itor it = std::find_if(std::begin(from), std::end(from),
-			[](auto* pObj)
+			[remove](auto* pObj)
 			{
 				return pObj == remove;
 			});
@@ -289,9 +293,10 @@ public:
 	Board();
 	void _ReturnPool(OUT std::vector<T*>& vcDelete);
 	void _Make();
-	void _InitBullet(OUT T& a_cBullet);
+	void _InitBullet(OUT T& a_cBullet) { assert(false); } // using 바꾸면 저절로 정의 되도록
 	void _Render()
 	{
+		SetCursor(0, 0);
 		for (auto* pObj : m_Bullets)
 		{
 			pObj->Render();
@@ -314,6 +319,7 @@ Board()
 	for (int i = 0; i < nBoardY; ++i)
 	{
 		m_pRenderBuffer[i] = new char[nBoardX + 1];
+		memset(m_pRenderBuffer[i], ' ', sizeof(char) * (nBoardX));
 		m_pRenderBuffer[i][nBoardX] = 0;
 	}
 }
@@ -344,6 +350,7 @@ _Render()
 		pObj->Render();
 	}
 
+	SetCursor(0, 0);
 	for (int i = 0; i < nBoardY; ++i)
 	{
 		cout << m_pRenderBuffer[i] << endl;
@@ -403,8 +410,8 @@ _InitBullet(OUT PoolTarget& a_cBullet)
 		}break;
 	}
 
-	float speed = ((float)nRand / Random::max * fBulletMaxSpeed) + fBulletMinSpeed;
-	float life = (float)nRand / Random::max * fBulletMaxLife + fBulletMinLife;
+	float speed = fRate * fBulletMaxSpeed + fBulletMinSpeed;
+	float life = fRate * fBulletMaxLife + fBulletMinLife;
 
 	static fpRenderFunction fpRender =
 	[this](float x, float y, bool bRend)
@@ -424,19 +431,19 @@ _InitBullet(OUT PoolTarget& a_cBullet)
 		}
 	};
 
-	static fpMoveFunction fpMove[4] 
-	{
-		[](OUT float& x, OUT float& y, IN float speed) { x += speed; },
-		[](OUT float& x, OUT float& y, IN float speed) { y += speed; },
-		[](OUT float& x, OUT float& y, IN float speed) { x -= speed; },
-		[](OUT float& x, OUT float& y, IN float speed) { y -= speed; },
-	};
+// 	static fpMoveFunction fpMove[4] 
+// 	{
+// 		[](OUT float& x, OUT float& y, IN float speed) { x += speed; },
+// 		[](OUT float& x, OUT float& y, IN float speed) { y += speed; },
+// 		[](OUT float& x, OUT float& y, IN float speed) { x -= speed; },
+// 		[](OUT float& x, OUT float& y, IN float speed) { y -= speed; },
+// 	};
 
 	a_cBullet.Init(
 		{ x, y, speed, dirx, diry, life, },
 		fpRender,
 		fpClear,
-		fpMove
+		nullptr
 	);
 }
 
@@ -521,19 +528,19 @@ _InitBullet(OUT PoolTarget& a_cBullet)
 		}
 	};
 
-	static fpMoveFunction fpMove[4]
-	{
-		[](OUT float& x, OUT float& y, IN float speed) { x += speed; },
-		[](OUT float& x, OUT float& y, IN float speed) { y += speed; },
-		[](OUT float& x, OUT float& y, IN float speed) { x -= speed; },
-		[](OUT float& x, OUT float& y, IN float speed) { y -= speed; },
-	};
+// 	static fpMoveFunction fpMove[4]
+// 	{
+// 		[](OUT float& x, OUT float& y, IN float speed) { x += speed; },
+// 		[](OUT float& x, OUT float& y, IN float speed) { y += speed; },
+// 		[](OUT float& x, OUT float& y, IN float speed) { x -= speed; },
+// 		[](OUT float& x, OUT float& y, IN float speed) { y -= speed; },
+// 	};
 
 	a_cBullet.Init(
 		{ x, y, speed, dirx, diry, life, },
 		fpRender,
 		fpClear,
-		fpMove
+		nullptr
 	);
 }
 
@@ -565,7 +572,7 @@ _Make()
 		}
 		else
 		{
-			auto* pBullet = MakeBulletInstance();
+			pBullet = MakeBulletInstance();
 		}
 
 		m_Bullets.push_back(pBullet);
@@ -603,8 +610,20 @@ class App
 		return (1 / nTargetFrame) * 1000;
 	}
 
+public:
+
+	App()
+	{
+		pBoard = std::make_unique<Board<>>();
+
+		Random::Init();
+		SetConsoleSize(800, 600);
+		SetCursorType(CURSOR_TYPE::NOCURSOR);
+	}
+
 	void Run()
 	{
+		system("cls");
 		clock_t programStart = clock();
 
 		while (true)
@@ -635,6 +654,7 @@ class App
 		cout << "루프 : " << m_nTotalLoop << endl;
 	}
 
+private:
 	bool Update(float a_fDelta)
 	{
 		if (GetAsyncKeyState(VK_ESCAPE) & 0x8000)
@@ -659,5 +679,5 @@ class App
 	clock_t m_nProgramEnd = 0;
 	clock_t m_nTotalLoop= 0;
 
-	Board<>* pBoard = nullptr;
+	std::unique_ptr<Board<>> pBoard;
 };
