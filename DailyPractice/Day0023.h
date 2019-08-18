@@ -136,8 +136,8 @@ constexpr int nTargetFrame = 60;
 constexpr int nBoardX = 50;
 constexpr int nBoardY = 20;
 
-constexpr float fBulletMaxSpeed = 0.01;
-constexpr float fBulletMinSpeed = 0.01;
+constexpr float fBulletMaxSpeed = 0.01f;
+constexpr float fBulletMinSpeed = 0.01f;
 constexpr float fBulletMaxLife = 3;
 constexpr float fBulletMinLife = 2;
 
@@ -293,7 +293,7 @@ public:
 	Board();
 	void _ReturnPool(OUT std::vector<T*>& vcDelete);
 	void _Make();
-	void _InitBullet(OUT T& a_cBullet) { assert(false); } // using 바꾸면 저절로 정의 되도록
+	void _InitBullet(OUT T& a_cBullet) { assert(false); } // using 바꾸면 저절로 정의 되도록 해야함. 이 버전은 불리면 안됨
 	void _Render()
 	{
 		SetCursor(0, 0);

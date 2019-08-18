@@ -2,20 +2,16 @@
 
 using namespace std;
 
-#include "Day0023.h"
+#include "Day0025.h"
 
-void MyTestabcd()
-{
-	App a;
-	a.Run();	
-}
 
 int main()
 {
 
+	Test0025();
 
-	MyTestabcd();
 
+	
 	getchar();
 	return 0;
 }

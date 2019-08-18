@@ -47,3 +47,10 @@ void MyTestabcd()
 	d.Init();
 	e.Init();
 }
+
+class Day0024
+{
+public:
+	Day0024();
+	~Day0024();
+};
