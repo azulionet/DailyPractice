@@ -1,8 +1,7 @@
 ﻿#pragma once
 
 
-#include <array>
-
+#include <boost/array.hpp>
 
 template<typename T, size_t X, size_t Y>
 class Matrix
@@ -41,10 +40,10 @@ public:
 		}
 	}
 
-	std::array<T, X>& operator[](size_t index)
+	boost::array<T, X>& operator[](size_t index)
 	{
 		return Arr[index];
 	}
 
-	std::array<std::array<T, X>, Y> Arr;
+	boost::array<boost::array<T, X>, Y> Arr;
 };
