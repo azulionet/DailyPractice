@@ -2,13 +2,13 @@
 
 using namespace std;
 
-#include "Day0025.h"
+#include "Day0026.h"
+#include <numeric>
+
 
 
 int main()
 {
-
-	Test0025();
 
 
 	

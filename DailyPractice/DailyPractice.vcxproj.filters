@@ -129,6 +129,9 @@
     <ClInclude Include="Day0025.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="Day0026.h">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -159,6 +162,9 @@
       <Filter>SourceCode</Filter>
     </ClCompile>
     <ClCompile Include="Day0025.cpp">
+      <Filter>SourceCode</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0026.cpp">
       <Filter>SourceCode</Filter>
     </ClCompile>
   </ItemGroup>
