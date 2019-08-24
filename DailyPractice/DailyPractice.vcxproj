@@ -168,6 +168,7 @@
     <ClInclude Include="Day0025.h" />
     <ClInclude Include="Day0026.h" />
     <ClInclude Include="Day0027.h" />
+    <ClInclude Include="Day0028.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="pch.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="Day0025.cpp" />
     <ClCompile Include="Day0026.cpp" />
     <ClCompile Include="Day0027.cpp" />
+    <ClCompile Include="Day0028.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
