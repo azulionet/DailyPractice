@@ -8,13 +8,16 @@ public:
 
 #include <optional>
 
+
+
+
 template<typename T>
 struct Nullable
 {
 
 	operator T()
 	{
-		return 
+		return {};
 	}
 
 
