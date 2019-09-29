@@ -1,67 +1,50 @@
 ﻿#include "pch.h"
 
+#include <vld.h>
+
 using namespace std;
 
 
 
-union S
+#include <limits>
+
+
+
+template<typename T>
+[[nodiscard]] T Input()
 {
-	S() : c{} { cout << "union s" << endl; }
-	char c;
-	int a;
-	char ar[4];
-};
+	T val;
 
-void TestS()
-{
-	S a;
-
-	cout << (int)a.c << endl;
-	cout << (int)a.a << endl;
-
-	for (auto val : a.ar)
+	while (true)
 	{
-		cout << (int)val << endl;
+		cin >> val;
+
+		if (cin.fail())
+		{
+			cin.clear();
+			cin.ignore(INT_MAX, '\n');
+
+			cout << typeid(T).name() << " : 입력 에러" << endl;
+		}
+		else { break; }
 	}
-}
 
-struct S2
-{
-	struct
-	{
-		int a;
-		int b;
-	};
-
-	class {
-	public:
-		int c;
-		int d;
-	};
-
-
-	void Print()
-	{
-		cout << a << endl;
-		cout << b << endl;
-		cout << c << endl;
-		cout << d << endl;
-	}
-};
-
-void TestS2()
-{
-	S2 aaaa;
-
-	aaaa.Print();
+	cin.ignore(INT_MAX, '\n');
+	return val;
 }
 
 
 
-int main()
+#include "Day0029.h"
+
+int main(int n, const char* ar[])
 {
-	TestS2();
+	Day0029 eee;
+
+
 	getchar();
+	getchar();
+
 	return 0;
 }
 

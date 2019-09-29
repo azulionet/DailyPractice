@@ -157,6 +157,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BT.h" />
     <ClInclude Include="Component\PracticePool.h" />
     <ClInclude Include="Day0017.h" />
     <ClInclude Include="Day0018.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Day0026.h" />
     <ClInclude Include="Day0027.h" />
     <ClInclude Include="Day0028.h" />
+    <ClInclude Include="Day0029.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="pch.h" />
@@ -209,8 +211,10 @@
     <ClInclude Include="Practice\Day0006.h" />
     <ClInclude Include="Practice\Day_0010.h" />
     <ClInclude Include="Practice\Day_0013.h" />
+    <ClInclude Include="Tester.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BT.cpp" />
     <ClCompile Include="DailyPractice.cpp" />
     <ClCompile Include="Day0022.h" />
     <ClCompile Include="Day0024.cpp" />
@@ -218,6 +222,7 @@
     <ClCompile Include="Day0026.cpp" />
     <ClCompile Include="Day0027.cpp" />
     <ClCompile Include="Day0028.cpp" />
+    <ClCompile Include="Day0029.cpp" />
     <ClCompile Include="Log.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -241,6 +246,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Tester.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

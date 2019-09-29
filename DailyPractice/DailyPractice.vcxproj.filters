@@ -138,6 +138,15 @@
     <ClInclude Include="Day0028.h">
       <Filter>Main</Filter>
     </ClInclude>
+    <ClInclude Include="Tester.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Day0029.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="BT.h">
+      <Filter>Main</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -177,6 +186,15 @@
       <Filter>SourceCode</Filter>
     </ClCompile>
     <ClCompile Include="Day0028.cpp">
+      <Filter>SourceCode</Filter>
+    </ClCompile>
+    <ClCompile Include="Tester.cpp">
+      <Filter>SourceCode</Filter>
+    </ClCompile>
+    <ClCompile Include="Day0029.cpp">
+      <Filter>SourceCode</Filter>
+    </ClCompile>
+    <ClCompile Include="BT.cpp">
       <Filter>SourceCode</Filter>
     </ClCompile>
   </ItemGroup>
