@@ -14,10 +14,9 @@ public:
 
 	BT_NODE::BTRoot* const m_pBTRoot;
 
-	bool IsInDetectRange()
-	{
-		return true; // 대충 내 감지거리 안인지`
-	}
-
-	
+	// BT 동작들
+	bool IsNotInDetectRange();
+	void DoIdle();
+	bool MoveToCanAttackArea();
+	void DoAttack();
 };
